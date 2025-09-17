@@ -1,16 +1,33 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog</title>
-</head>
-<body>
+<x-layout>
     <h2>Abundant become simple.</h2>
+    
+    @if($greeting == "hello")
+     <p> If it can be simple, why not?</p>
+    @endif
+
 
     <ul>
-        <li>Code 1.sh</li>
-        <li>Code 2.py</li>
-        <li>Code 3.c</li>
+    @foreach($codes as $code) 
+    <li>
+        <x-card href="/catalog/{{ $code['id'] }}" :highlight="$code['type'] == 'python'">
+            <h3>{{ $code['name']}}</h3>
+        </x-card>
+    </li>
+    @endforeach
     </ul>
-</body>
-</html>
+</x-layout>
+
+{{-- THIS IS BLADE DIRECTIVES --}}
+{{-- <p>{{ $code['name']}}</p>
+        <a href="/catalog/{{ $code['id']}}">View full code</a> --}}
+
+{{-- <li> THIS IS WILDCARD ROUTING
+            <a href="/catalog/{{$codes[0]["id"]}}">
+                {{ $codes[0]["name"]}}
+            </a>
+        </li>
+        <li>
+            <a href="/catalog/{{$codes[1]["id"]}}">
+                {{ $codes[1]["name"]}}
+            </a>
+        </li> --}}

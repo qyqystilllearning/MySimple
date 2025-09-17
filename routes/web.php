@@ -7,5 +7,19 @@ Route::get('/', function () {
 });
 
 Route::get('/catalog', function() {
-    return view('catalog.index');
+    $codes = [
+        ["name" => "CHALLENGE1.sh", "type" => "bash", "id" => 1],
+        ["name" => "DATASCIENCE.py", "type" => "python", "id" => 2],
+    ];
+
+    return view('catalog.index', ["greeting" => "hello", "codes" => $codes ]);
+});
+
+Route::get('/catalog/add', function () {
+    return view('catalog.add');
+});
+
+
+Route::get('/catalog/{id}', function($id) {
+    return view('catalog.show', ["id" => $id]);
 });
