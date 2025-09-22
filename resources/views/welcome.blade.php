@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     
 </head>
-<body class="text-center px-8 py-12"> 
+<body class="container text-center"> 
     <h1>Welcome!</h1>
     <p>MySimple to keep your code in simplicity</p>
 
