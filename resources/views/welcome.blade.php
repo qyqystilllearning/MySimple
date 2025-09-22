@@ -7,11 +7,11 @@
     @vite('resources/css/app.css')
     
 </head>
-<body>
+<body class="text-center px-8 py-12"> 
     <h1>Welcome!</h1>
     <p>MySimple to keep your code in simplicity</p>
 
-    <a href="/catalog" class="">
+    <a href="/catalog" class="btn mt-4 inline-block">
         keep it simple.
     </a>
 </body>
