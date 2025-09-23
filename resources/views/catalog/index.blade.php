@@ -1,9 +1,9 @@
 <x-layout>
     <h2>Abundant become simple.</h2>
     
-    @if($greeting == "hello")
+    {{-- @if($greeting == "hello")
      <p> If it can be simple, why not?</p>
-    @endif
+    @endif --}}
 
 
     <ul>

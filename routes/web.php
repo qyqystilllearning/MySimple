@@ -1,19 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CodesController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/catalog', function() {
-    $codes = [
-        ["name" => "CHALLENGE1.sh", "type" => "bash", "id" => 1],
-        ["name" => "DATASCIENCE.py", "type" => "python", "id" => 2],
-    ];
-
-    return view('catalog.index', ["greeting" => "hello", "codes" => $codes ]);
-});
+Route::get('/catalog', [CodesController::class, 'index']);
 
 Route::get('/catalog/add', function () {
     return view('catalog.add');
