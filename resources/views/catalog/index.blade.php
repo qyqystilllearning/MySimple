@@ -9,8 +9,8 @@
     <ul>
     @foreach($codes as $code) 
     <li>
-        <x-card href="/catalog/{{ $code['id'] }}" :highlight="$code['type'] == 'python'">
-            <h3>{{ $code['name']}}</h3>
+        <x-card href="{{ route('codes.show', $code->id)}}" :highlight="$code['name'] == 'Ms. Chelsie Olson PhD'">
+            <h3>{{ $code->name }}</h3>
         </x-card>
     </li>
     @endforeach

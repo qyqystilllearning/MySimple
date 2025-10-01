@@ -12,8 +12,8 @@
     <header>
         <nav>
             <h1> MySimple</h1>
-            <a href="/catalog"> Code List</a>
-            <a href="/catalog/add"> Add New Code </a>
+            <a href="{{ route('catalog.index')}}"> Code List</a>
+            <a href="{{ route('codes.add')}}"> Add New Code </a>
         </nav>
     </header>
 

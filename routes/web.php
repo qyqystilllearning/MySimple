@@ -6,14 +6,7 @@ use App\Http\Controllers\CodesController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/catalog', [CodesController::class, 'index']);
-
-Route::get('/catalog/add', function () {
-    return view('catalog.add');
-});
-
-
-Route::get('/catalog/{id}', function($id) {
-    return view('catalog.show', ["id" => $id]);
-});
+ 
+Route::get('/catalog', [CodesController::class, 'index'])->name('catalog.index');
+Route::get('/catalog/add', [CodesController::class, 'add'])->name('codes.add');
+Route::get('/catalog/{id}', [CodesController::class, 'show'])->name('codes.show');

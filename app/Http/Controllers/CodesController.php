@@ -18,17 +18,27 @@ class CodesController extends Controller
     public function show($id)
     {
         // route -> /catalog/{id}
-        // fetch a single record & pass into show view
+        $codes = Codes::findOrfail($id);
+
+        return view('catalog.show', ["codes" => $codes]);
     }
 
     public function add()
     {
         // route -> /catalog/create
-        // render a create view (with web form) to users
+        return view('catalog.add');
     }
 
     public function store()
     {
 
     }
+
+    public function destroy($id) {
+      // --> /ninjas/{id} (DELETE)
+      // handle delete request to delete a ninja record from table
+    }
+
+    // edit() and update() for edit view and update requests
+    // we won't be using these routes
 }
