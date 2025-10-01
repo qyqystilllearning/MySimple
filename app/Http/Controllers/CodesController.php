@@ -9,7 +9,7 @@ class CodesController extends Controller
 {
     public function index()
     {
-        $codes = Codes::orderBy('created_at', 'desc')->get();   
+        $codes = Codes::orderBy('created_at', 'desc')->paginate(10); 
 
         return view('catalog.index', ["codes" => $codes ]);
         // return view('catalog.index', ["greeting" => "hello", "codes" => $codes ]);

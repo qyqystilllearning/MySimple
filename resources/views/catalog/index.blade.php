@@ -15,6 +15,8 @@
     </li>
     @endforeach
     </ul>
+
+    {{ $codes->links() }}
 </x-layout>
 
 {{-- THIS IS BLADE DIRECTIVES --}}
