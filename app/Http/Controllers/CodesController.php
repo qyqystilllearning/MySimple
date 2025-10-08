@@ -16,13 +16,12 @@ class CodesController extends Controller
         // return view('catalog.index', ["greeting" => "hello", "codes" => $codes ]);
     }
 
-    public function show($id)
-    {
-        // route -> /catalog/{id}
-        $codes = Codes::findOrfail($id);
-
-        return view('catalog.show', ["codes" => $codes]);
-    }
+    public function show(Codes $code)
+{
+    $code->load('organization');
+    // Tidak perlu 'findOrfail' lagi, Laravel sudah melakukannya!
+    return view('catalog.show', ["codes" => $code]);
+}
 
     public function add()
     {
@@ -47,9 +46,8 @@ class CodesController extends Controller
         return redirect()->route('catalog.index')->with('success', 'Codes added.');
     }
 
-    public function destroy($id) {
+    public function destroy(Codes $code) {
       // --> /ninjas/{id} (DELETE)
-      $code = Codes::findOrFail($id);
       $code->delete();
 
       return redirect()->route('catalog.index')->with('deleted', 'Codes deleted.');
